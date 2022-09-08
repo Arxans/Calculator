@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Calculator.Model;
+using Calculator.Presenter;
 
 namespace Calculator
 {
@@ -16,7 +18,17 @@ namespace Calculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            // model
+            DemoModel model = new DemoModel();
+
+            // view
+            DemoView view = new DemoView();
+
+            // presenter
+            DemoPresenter presenter = new DemoPresenter(model, view);
+
+            Application.Run(view);
         }
     }
 }
