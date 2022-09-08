@@ -29,9 +29,17 @@ namespace Calculator.Presenter
         
         public void OnDivClicked()
         {
-            model.Div();
+            bool bResult = model.Div();
 
             UpdateView();
+
+            if (!bResult)
+                view.ShowSorryView();
+        }
+
+        public void ShowError()
+        {
+            view.ShowSorryView();
         }
 
         private void UpdateView()

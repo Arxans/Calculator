@@ -14,7 +14,9 @@ namespace Calculator
     public partial class DemoView : Form
     {
         public DemoPresenter presenter { get; set; }
+        
         public event Action ResultBtnClickCallback;
+        private Point MouseHook;
 
         public DemoView()
         {
@@ -50,6 +52,23 @@ namespace Calculator
             textBox.Text = text;
         }
 
+        public void ShowSorryView()
+        {
+            SorryView sorryView = new SorryView();
+
+            DialogResult result = sorryView.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                textBox.Text = string.Empty;
+                presenter.OnTextChanged(string.Empty);
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
         private void DemoView_Load(object sender, EventArgs e)
         {
             textBox.Text = Properties.Settings.Default.FieldText;
@@ -59,6 +78,12 @@ namespace Calculator
         {
             Properties.Settings.Default.FieldText = textBox.Text;
             Properties.Settings.Default.Save();
+        }
+
+        private void DemoView_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) MouseHook = e.Location;
+            Location = new Point((Size)Location - (Size)MouseHook + (Size)e.Location);
         }
     }
 }

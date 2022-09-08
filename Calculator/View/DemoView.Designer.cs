@@ -37,7 +37,7 @@
             this.btnResult.BackColor = System.Drawing.SystemColors.Info;
             this.btnResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnResult.Location = new System.Drawing.Point(277, 211);
+            this.btnResult.Location = new System.Drawing.Point(45, 105);
             this.btnResult.Name = "btnResult";
             this.btnResult.Size = new System.Drawing.Size(176, 25);
             this.btnResult.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox.ForeColor = System.Drawing.Color.Black;
-            this.textBox.Location = new System.Drawing.Point(277, 153);
+            this.textBox.Location = new System.Drawing.Point(45, 47);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(176, 43);
@@ -61,13 +61,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(77)))), ((int)(((byte)(121)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(268, 173);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.btnResult);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DemoView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Demo View";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DemoView_FormClosed);
             this.Load += new System.EventHandler(this.DemoView_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DemoView_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

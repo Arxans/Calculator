@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1 : Form
+    public partial class SorryView : Form
     {
-        public Form1()
+        private Point MouseHook;
+        
+        public SorryView()
         {
             InitializeComponent();
+        }
+
+        private void SorryView_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) MouseHook = e.Location;
+            Location = new Point((Size)Location - (Size)MouseHook + (Size)e.Location);
         }
     }
 }

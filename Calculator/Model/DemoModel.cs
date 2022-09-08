@@ -10,22 +10,22 @@ namespace Calculator.Model
     {
         public string text { get; set; }
 
-        public void Div()
+        public bool Div()
         {
             if (!IsTextValid())
             {
                 text = "Error";
-                return;
+                return false;
             }
 
             int divSymbPos = text.IndexOf('/');
             if (divSymbPos < -1)
             { 
                 text = "Error";
-                return;
+                return false;
             }
 
-            string sLeft = "", sRight = "";
+            string sLeft, sRight;
 
             try
             {
@@ -36,16 +36,16 @@ namespace Calculator.Model
             {
                 Console.WriteLine(e.Message);
                 text = "Error";
-                return;
+                return false;
             }
 
             if (sLeft.Length == 0 || sRight.Length == 0)
             {
                 text = "Error";
-                return;
+                return false;
             }
 
-            int nLeft = 0, nRight = 0;
+            int nLeft, nRight;
 
             try
             {
@@ -55,21 +55,21 @@ namespace Calculator.Model
             catch (FormatException ex)
             {
                 Console.WriteLine(ex.Message);
-                text = "Error";
-                return;
+                
+                return false;
             }
-
 
             if (nRight == 0)
             {
                 text = "You can't divide by 0!";
-                return;
+                return true;
             }
 
             int nResult = nLeft / nRight;
             text = nResult.ToString();
-        }
 
+            return true;
+        }
 
         private bool IsTextValid()
         {
