@@ -79,11 +79,5 @@ namespace Calculator
             Properties.Settings.Default.FieldText = textBox.Text;
             Properties.Settings.Default.Save();
         }
-
-        private void DemoView_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left) MouseHook = e.Location;
-            Location = new Point((Size)Location - (Size)MouseHook + (Size)e.Location);
-        }
     }
 }

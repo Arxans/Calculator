@@ -64,13 +64,12 @@
             this.ClientSize = new System.Drawing.Size(268, 173);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.btnResult);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DemoView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Demo View";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DemoView_FormClosed);
             this.Load += new System.EventHandler(this.DemoView_Load);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DemoView_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

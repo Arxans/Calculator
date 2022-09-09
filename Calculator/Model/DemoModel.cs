@@ -12,7 +12,10 @@ namespace Calculator.Model
 
         public bool Div()
         {
-            if (!IsTextCharsValid())
+            if (text.Length == 0)
+                return true;
+
+            if (!IsTextCharsValid(text))
             {
                 text = "Error";
                 return false;
@@ -55,7 +58,7 @@ namespace Calculator.Model
             catch (FormatException ex)
             {
                 Console.WriteLine(ex.Message);
-                
+                text = "Error";
                 return false;
             }
 
@@ -71,14 +74,14 @@ namespace Calculator.Model
             return true;
         }
 
-        private bool IsTextCharsValid()
+        private bool IsTextCharsValid(in string str)
         {
-            if (text.Length == 0)
+            if (str.Length == 0)
                 return true;
 
             string num = "0123456789";
 
-            foreach (var ch in text)
+            foreach (var ch in str)
             {
                 if (num.IndexOf(ch) >= 0)
                     continue;
