@@ -12,14 +12,14 @@ namespace Calculator.Model
 
         public bool Div()
         {
-            if (!IsTextValid())
+            if (!IsTextCharsValid())
             {
                 text = "Error";
                 return false;
             }
 
             int divSymbPos = text.IndexOf('/');
-            if (divSymbPos < -1)
+            if (divSymbPos < 0)
             { 
                 text = "Error";
                 return false;
@@ -71,7 +71,7 @@ namespace Calculator.Model
             return true;
         }
 
-        private bool IsTextValid()
+        private bool IsTextCharsValid()
         {
             if (text.Length == 0)
                 return true;
