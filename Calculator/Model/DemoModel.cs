@@ -64,7 +64,7 @@ namespace Calculator.Model
 
             if (nRight == 0)
             {
-                text = "You can't divide by 0!";
+                text = "Infinity";
                 return true;
             }
 
